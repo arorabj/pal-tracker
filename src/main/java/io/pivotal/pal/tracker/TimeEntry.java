@@ -1,0 +1,93 @@
+package io.pivotal.pal.tracker;
+
+import org.springframework.http.ResponseEntity;
+
+import java.time.LocalDate;
+import java.util.Objects;
+
+public class TimeEntry  {
+
+    private long id;
+    private long projectId;
+    private long userId;
+    private LocalDate parse;
+
+    public int getHours() {
+        return hours;
+    }
+
+    public void setHours(int hours) {
+        this.hours = hours;
+    }
+
+    private int hours;
+
+    public TimeEntry(){
+
+    }
+    public void setId(long id) {
+        this.id = id;
+    }
+
+    public long getProjectId() {
+        return projectId;
+    }
+
+    public void setProjectId(long projectId) {
+        this.projectId = projectId;
+    }
+
+    public long getUserId() {
+        return userId;
+    }
+
+    public void setUserId(long userId) {
+        this.userId = userId;
+    }
+
+    public LocalDate getParse() {
+        return parse;
+    }
+
+    public void setParse(LocalDate parse) {
+        this.parse = parse;
+    }
+
+
+    public TimeEntry(long projectId, long userId, LocalDate parse, int hours) {
+        this.projectId = projectId;
+        this.userId= userId;
+        this.parse = parse;
+        this.hours = hours;
+    }
+
+    public TimeEntry(long timeEntryId, long projectId, long userId, LocalDate parse, int hours) {
+        this.id = timeEntryId;
+        this.projectId = projectId;
+        this.userId= userId;
+        this.parse = parse;
+        this.hours = hours;
+    }
+
+
+    public long getId() {
+        return id;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        TimeEntry timeEntry = (TimeEntry) o;
+        return id == timeEntry.id &&
+                projectId == timeEntry.projectId &&
+                userId == timeEntry.userId &&
+                hours == timeEntry.hours &&
+                Objects.equals(parse, timeEntry.parse);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(id, projectId, userId, parse, hours);
+    }
+}
