@@ -11,7 +11,6 @@ import java.util.List;
 @RestController
 public class TimeEntryController {
 
-    @Autowired
     private TimeEntryRepository timeEntryRepository;
 
     private TimeEntry timeEntry;
