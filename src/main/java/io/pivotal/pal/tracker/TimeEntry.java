@@ -10,7 +10,7 @@ public class TimeEntry  {
     private long id;
     private long projectId;
     private long userId;
-    private LocalDate parse;
+    private LocalDate date;
 
     public int getHours() {
         return hours;
@@ -45,27 +45,26 @@ public class TimeEntry  {
         this.userId = userId;
     }
 
-    public LocalDate getParse() {
-        return parse;
+    public LocalDate getDate() {
+        return date;
     }
 
-    public void setParse(LocalDate parse) {
-        this.parse = parse;
+    public void setDate(LocalDate date) {
+        this.date = date;
     }
 
-
-    public TimeEntry(long projectId, long userId, LocalDate parse, int hours) {
+    public TimeEntry(long projectId, long userId, LocalDate date, int hours) {
         this.projectId = projectId;
         this.userId= userId;
-        this.parse = parse;
+        this.date = date;
         this.hours = hours;
     }
 
-    public TimeEntry(long timeEntryId, long projectId, long userId, LocalDate parse, int hours) {
+    public TimeEntry(long timeEntryId, long projectId, long userId, LocalDate date, int hours) {
         this.id = timeEntryId;
         this.projectId = projectId;
         this.userId= userId;
-        this.parse = parse;
+        this.date = date;
         this.hours = hours;
     }
 
@@ -83,11 +82,11 @@ public class TimeEntry  {
                 projectId == timeEntry.projectId &&
                 userId == timeEntry.userId &&
                 hours == timeEntry.hours &&
-                Objects.equals(parse, timeEntry.parse);
+                Objects.equals(date, timeEntry.date);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, projectId, userId, parse, hours);
+        return Objects.hash(id, projectId, userId, date, hours);
     }
 }
