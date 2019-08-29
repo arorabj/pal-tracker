@@ -5,7 +5,6 @@ import org.springframework.jdbc.core.ResultSetExtractor;
 import org.springframework.jdbc.core.RowMapper;
 import org.springframework.jdbc.support.GeneratedKeyHolder;
 import org.springframework.jdbc.support.KeyHolder;
-
 import javax.sql.DataSource;
 import java.sql.Date;
 import java.sql.PreparedStatement;
@@ -16,7 +15,7 @@ public class JdbcTimeEntryRepository implements TimeEntryRepository {
 
     private JdbcTemplate jdbcTemplate;
 
-    @Override
+     @Override
     public TimeEntry create(TimeEntry any) {
         KeyHolder generatedKeyHolder = new GeneratedKeyHolder();
         jdbcTemplate.update(connection -> {
